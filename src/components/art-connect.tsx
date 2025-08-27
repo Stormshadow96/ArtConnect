@@ -127,10 +127,13 @@ export default function ArtConnect() {
         <Button 
           variant="ghost" 
           size="icon" 
-          className="mt-auto rounded-full bg-white dark:bg-gray-800 text-pink-600 dark:text-purple-400 hover:bg-pink-100 dark:hover:bg-purple-900 shadow-md" 
+          className="mt-auto rounded-full bg-white dark:bg-gray-800 text-pink-600 dark:text-purple-400 hover:bg-pink-100 dark:hover:bg-purple-900 shadow-md w-12 h-12 flex items-center justify-center" 
           onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+          title="Toggle theme"
         >
-          {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+          <span className="flex items-center justify-center w-6 h-6">
+            {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+          </span>
         </Button>
       </nav>
 
@@ -217,12 +220,15 @@ function NavButton({ icon, isActive, onClick, label }: NavButtonProps) {
       variant="ghost"
       size="icon"
       className={cn(
-        "relative rounded-full bg-white dark:bg-gray-800 text-pink-600 dark:text-purple-400 shadow-md",
+        "relative rounded-full bg-white dark:bg-gray-800 text-pink-600 dark:text-purple-400 shadow-md w-12 h-12 flex items-center justify-center",
         isActive ? "bg-pink-100 dark:bg-purple-900 ring-2 ring-pink-500 dark:ring-purple-500" : "hover:bg-pink-100 dark:hover:bg-purple-900",
       )}
       onClick={onClick}
+      title={label}
     >
-      {icon}
+      <span className="flex items-center justify-center w-6 h-6">
+        {icon}
+      </span>
       {isActive && (
         <span className="absolute -right-1 -top-1 w-3 h-3 bg-pink-500 dark:bg-purple-500 rounded-full" />
       )}
