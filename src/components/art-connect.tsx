@@ -5,12 +5,14 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Textarea } from "@/components/ui/textarea"
 import { ScrollArea } from "@/components/ui/scroll-area"
-import { Home, Users, MessageSquare, Bell, Sun, Moon, Upload, X, ArrowLeft } from 'lucide-react'
+import { Home, Users, MessageSquare, Bell, Sun, Moon, Upload, X, ArrowLeft, Info, Phone } from 'lucide-react'
 import { useTheme } from '@/components/theme-provider'
 import { Post } from '@/components/post'
 import { ConnectionsList } from '@/components/connections-list'
 import { MessagesList } from '@/components/messages-list'
 import { NotificationsList } from '@/components/notifications-list'
+import { AboutPage } from '@/components/about-page'
+import { ContactPage } from '@/components/contact-page'
 import { cn } from '@/lib/utils'
 
 export default function ArtConnect() {
@@ -80,6 +82,10 @@ export default function ArtConnect() {
         return <MessagesList />
       case 'notifications':
         return <NotificationsList />
+      case 'about':
+        return <AboutPage />
+      case 'contact':
+        return <ContactPage />
       default:
         return null
     }
@@ -121,6 +127,18 @@ export default function ArtConnect() {
           isActive={activeTab === 'notifications'} 
           onClick={() => setActiveTab('notifications')} 
           label="Notifications"
+        />
+        <NavButton 
+          icon={<Info className="h-6 w-6" />} 
+          isActive={activeTab === 'about'} 
+          onClick={() => setActiveTab('about')} 
+          label="About Us"
+        />
+        <NavButton 
+          icon={<Phone className="h-6 w-6" />} 
+          isActive={activeTab === 'contact'} 
+          onClick={() => setActiveTab('contact')} 
+          label="Contact"
         />
         
         {/* Theme Toggle */}
