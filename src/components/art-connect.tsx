@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent } from "@/components/ui/card"
 import { Textarea } from "@/components/ui/textarea"
-import { ScrollArea } from "@/components/ui/scroll-area"
-import { Home, Users, MessageSquare, Bell, Sun, Moon, Upload, X, ArrowLeft, Info, Phone } from 'lucide-react'
+import { Home, Users, MessageSquare, Bell, Sun, Moon, Upload, ArrowLeft, Info, Phone } from 'lucide-react'
 import { useTheme } from '@/components/theme-provider'
 import { Post } from '@/components/post'
 import { ConnectionsList } from '@/components/connections-list'
@@ -21,7 +19,7 @@ export default function ArtConnect() {
     { id: 1, author: 'Alice', content: 'Quick tip: Always start with basic shapes!', media: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=800&auto=format&fit=crop&q=60', mediaType: 'image', likes: 15 },
     { id: 2, author: 'Bob', content: 'Check out my brush technique for concept art', media: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=800&auto=format&fit=crop&q=60', mediaType: 'image', likes: 23 },
   ])
-  const [newPost, setNewPost] = useState({ content: '', media: null, mediaType: null })
+  const [newPost, setNewPost] = useState({ content: '', media: null as string | null, mediaType: null as string | null })
   const [showConnections, setShowConnections] = useState(false)
   const [activeTab, setActiveTab] = useState('home')
 
@@ -50,7 +48,7 @@ export default function ArtConnect() {
       reader.onloadend = () => {
         setNewPost({
           ...newPost,
-          media: reader.result as string,
+          media: reader.result as string | null,
           mediaType: file.type.startsWith('image') ? 'image' : 'video'
         })
       }
