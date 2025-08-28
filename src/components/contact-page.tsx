@@ -31,15 +31,15 @@ export function ContactPage() {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-8">
       <Card className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-md border-pink-200 dark:border-purple-800">
-        <CardHeader className="bg-gradient-to-r from-pink-200 to-purple-200 dark:from-pink-900 dark:to-purple-900">
+        <CardHeader className="bg-gradient-to-r from-pink-200 to-purple-200 dark:from-pink-900 dark:to-purple-900 p-8">
           <CardTitle className="text-3xl text-center">Contact Us</CardTitle>
           <p className="text-center text-gray-600 dark:text-gray-300 mt-2">
             We'd love to hear from you! Get in touch with our team.
           </p>
         </CardHeader>
-        <CardContent className="pt-6">
+        <CardContent className="p-8">
           <div className="grid md:grid-cols-2 gap-8">
             {/* Contact Information */}
             <div className="space-y-6">
@@ -173,10 +173,10 @@ export function ContactPage() {
 
       {/* FAQ Section */}
       <Card className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-md border-pink-200 dark:border-purple-800">
-        <CardHeader>
+        <CardHeader className="p-8">
           <CardTitle className="text-2xl text-center">Frequently Asked Questions</CardTitle>
         </CardHeader>
-        <CardContent>
+        <CardContent className="p-8 pt-0">
           <div className="space-y-4">
             {[
               {

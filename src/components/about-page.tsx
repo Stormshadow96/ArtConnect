@@ -4,12 +4,12 @@ import { Palette, Users, Heart, Sparkles } from 'lucide-react'
 
 export function AboutPage() {
   return (
-    <div className="space-y-6">
+    <div className="space-y-8">
       <Card className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-md border-pink-200 dark:border-purple-800">
-        <CardHeader className="bg-gradient-to-r from-pink-200 to-purple-200 dark:from-pink-900 dark:to-purple-900">
+        <CardHeader className="bg-gradient-to-r from-pink-200 to-purple-200 dark:from-pink-900 dark:to-purple-900 p-8">
           <CardTitle className="text-3xl text-center">About ArtConnect</CardTitle>
         </CardHeader>
-        <CardContent className="pt-6">
+        <CardContent className="p-8">
           <div className="text-center mb-8">
             <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-pink-400 to-purple-500 flex items-center justify-center">
               <Palette className="h-12 w-12 text-white" />
@@ -49,10 +49,10 @@ export function AboutPage() {
       </Card>
 
       <Card className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-md border-pink-200 dark:border-purple-800">
-        <CardHeader>
+        <CardHeader className="p-8">
           <CardTitle className="text-2xl text-center">Meet Our Team</CardTitle>
         </CardHeader>
-        <CardContent>
+        <CardContent className="p-8 pt-0">
           <div className="grid md:grid-cols-3 gap-6">
             {[
               { name: 'Sakura Tanaka', role: 'Founder & Lead Designer', bio: 'Passionate anime artist with 10+ years of experience in digital illustration.' },

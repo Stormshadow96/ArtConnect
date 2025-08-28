@@ -95,7 +95,7 @@ export default function ArtConnect() {
         <Button 
           variant="ghost" 
           size="icon" 
-          className="w-12 h-12 rounded-full bg-gradient-to-br from-pink-400 to-purple-500 text-white text-2xl font-bold mb-4 hover:from-pink-500 hover:to-purple-600" 
+          className="w-12 h-12 rounded-full bg-gradient-to-br from-pink-400 to-purple-500 text-white text-2xl font-bold mb-6 hover:from-pink-500 hover:to-purple-600" 
           onClick={goToHome}
         >
           AC
@@ -153,8 +153,8 @@ export default function ArtConnect() {
         </Button>
       </nav>
 
-      <main className="flex-1 p-8 overflow-auto">
-        <div className="flex items-center justify-between mb-8">
+      <main className="flex-1 px-6 py-8 overflow-auto max-w-4xl mx-auto w-full">
+        <div className="flex items-center justify-between mb-10">
           {activeTab !== 'home' && (
             <Button 
               variant="ghost" 
@@ -172,8 +172,8 @@ export default function ArtConnect() {
         </div>
         
         {activeTab === 'home' && (
-          <Card className="mb-8 bg-white/80 dark:bg-gray-800/80 backdrop-blur-md border-pink-200 dark:border-purple-800">
-            <CardContent className="pt-6">
+          <Card className="mb-10 bg-white/80 dark:bg-gray-800/80 backdrop-blur-md border-pink-200 dark:border-purple-800">
+            <CardContent className="p-8">
               <form onSubmit={handlePostSubmit} className="space-y-4">
                 <Textarea
                   placeholder="Share your anime-inspired art or tips..."

@@ -74,7 +74,7 @@ export function MessagesList() {
   return (
     <div className="space-y-4">
       <Card className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-md border-pink-200 dark:border-purple-800">
-        <CardHeader className="flex flex-row items-center justify-between">
+        <CardHeader className="flex flex-row items-center justify-between p-6">
           <CardTitle>Messages</CardTitle>
           <Button
             variant="ghost"
@@ -85,18 +85,18 @@ export function MessagesList() {
             <Plus className="h-5 w-5" />
           </Button>
         </CardHeader>
-        <CardContent>
+        <CardContent className="p-6 pt-0">
           <div className="grid grid-cols-3 gap-4 h-[600px]">
             {/* Connections Sidebar */}
-            <div className={`border-r border-pink-200 dark:border-purple-800 ${showConnections ? 'block' : 'hidden'} md:block`}>
-              <ScrollArea className="h-full pr-4">
+            <div className={`border-r border-pink-200 dark:border-purple-800 pr-4 ${showConnections ? 'block' : 'hidden'} md:block`}>
+              <ScrollArea className="h-full">
                 {connections.map((connection) => (
                   <div
                     key={connection.id}
                     className={`flex items-center space-x-2 p-2 rounded-lg cursor-pointer transition-colors ${
                       selectedConnection?.id === connection.id
-                        ? 'bg-pink-100 dark:bg-purple-900'
-                        : 'hover:bg-pink-50 dark:hover:bg-purple-900/50'
+                        ? 'bg-pink-100 dark:bg-purple-900 mb-2'
+                        : 'hover:bg-pink-50 dark:hover:bg-purple-900/50 mb-2'
                     }`}
                     onClick={() => {
                       setSelectedConnection(connection)
@@ -124,8 +124,8 @@ export function MessagesList() {
                         key={message.id}
                         className={`mb-4 p-3 rounded-lg ${
                           message.sender === 'You'
-                            ? 'bg-pink-100 dark:bg-purple-900 ml-auto'
-                            : 'bg-gray-100 dark:bg-gray-700'
+                            ? 'bg-pink-100 dark:bg-purple-900 ml-auto max-w-[80%]'
+                            : 'bg-gray-100 dark:bg-gray-700 max-w-[80%]'
                         } max-w-[80%] ${
                           message.sender === 'You' ? 'ml-auto' : 'mr-auto'
                         }`}
@@ -140,7 +140,7 @@ export function MessagesList() {
                       </div>
                     ))}
                   </ScrollArea>
-                  <div className="flex items-center space-x-2 p-4 border-t border-pink-200 dark:border-purple-800">
+                  <div className="flex items-center space-x-3 p-4 border-t border-pink-200 dark:border-purple-800 mt-4">
                     <Textarea
                       value={newMessage}
                       onChange={(e) => setNewMessage(e.target.value)}

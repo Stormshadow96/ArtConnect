@@ -9,8 +9,8 @@ interface ConnectionsListProps {
 
 export function ConnectionsList({ onClose }: ConnectionsListProps) {
   return (
-    <aside className="w-64 bg-white/80 dark:bg-gray-800/80 backdrop-blur-md border-l border-pink-200 dark:border-purple-800 p-4">
-      <div className="flex justify-between items-center mb-4">
+    <aside className="w-72 bg-white/80 dark:bg-gray-800/80 backdrop-blur-md border-l border-pink-200 dark:border-purple-800 p-6">
+      <div className="flex justify-between items-center mb-6">
         <h2 className="text-lg font-semibold text-pink-600 dark:text-purple-400">Connections</h2>
         <Button 
           variant="ghost" 
@@ -21,11 +21,11 @@ export function ConnectionsList({ onClose }: ConnectionsListProps) {
           <X className="h-4 w-4" />
         </Button>
       </div>
-      <ScrollArea className="h-[calc(100vh-8rem)]">
+      <ScrollArea className="h-[calc(100vh-10rem)]">
         {['Alice', 'Bob', 'Charlie', 'Diana', 'Ethan'].map((name) => (
           <div 
             key={name} 
-            className="flex items-center space-x-2 mb-2 p-2 rounded-lg hover:bg-pink-100 dark:hover:bg-purple-900"
+            className="flex items-center space-x-3 mb-3 p-3 rounded-lg hover:bg-pink-100 dark:hover:bg-purple-900 transition-colors cursor-pointer"
           >
             <Avatar>
               <AvatarFallback className="bg-gradient-to-br from-pink-400 to-purple-500 text-white">
