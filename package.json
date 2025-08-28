@@ -1,7 +1,16 @@
 {
-  "name": "vite-react-typescript-starter",
+  "name": "artconnect",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "A vibrant social media platform for anime and digital art enthusiasts",
+  "keywords": ["react", "typescript", "anime", "art", "social-media", "community"],
+  "author": "Your Name <your.email@example.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/artconnect.git"
+  },
+  "homepage": "https://yourusername.github.io/artconnect",
   "type": "module",
   "scripts": {
     "dev": "vite",

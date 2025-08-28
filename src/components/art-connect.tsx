@@ -5,12 +5,14 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Textarea } from "@/components/ui/textarea"
 import { ScrollArea } from "@/components/ui/scroll-area"
-import { Home, Users, MessageSquare, Bell, Sun, Moon, Upload, X, ArrowLeft } from 'lucide-react'
+import { Home, Users, MessageSquare, Bell, Sun, Moon, Upload, X, ArrowLeft, Info, Phone } from 'lucide-react'
 import { useTheme } from '@/components/theme-provider'
 import { Post } from '@/components/post'
 import { ConnectionsList } from '@/components/connections-list'
 import { MessagesList } from '@/components/messages-list'
 import { NotificationsList } from '@/components/notifications-list'
+import { AboutPage } from '@/components/about-page'
+import { ContactPage } from '@/components/contact-page'
 import { cn } from '@/lib/utils'
 
 export default function ArtConnect() {
@@ -80,6 +82,10 @@ export default function ArtConnect() {
         return <MessagesList />
       case 'notifications':
         return <NotificationsList />
+      case 'about':
+        return <AboutPage />
+      case 'contact':
+        return <ContactPage />
       default:
         return null
     }
@@ -122,15 +128,30 @@ export default function ArtConnect() {
           onClick={() => setActiveTab('notifications')} 
           label="Notifications"
         />
+        <NavButton 
+          icon={<Info className="h-6 w-6" />} 
+          isActive={activeTab === 'about'} 
+          onClick={() => setActiveTab('about')} 
+          label="About Us"
+        />
+        <NavButton 
+          icon={<Phone className="h-6 w-6" />} 
+          isActive={activeTab === 'contact'} 
+          onClick={() => setActiveTab('contact')} 
+          label="Contact"
+        />
         
         {/* Theme Toggle */}
         <Button 
           variant="ghost" 
           size="icon" 
-          className="mt-auto rounded-full bg-white dark:bg-gray-800 text-pink-600 dark:text-purple-400 hover:bg-pink-100 dark:hover:bg-purple-900 shadow-md" 
+          className="mt-auto rounded-full bg-white dark:bg-gray-800 text-pink-600 dark:text-purple-400 hover:bg-pink-100 dark:hover:bg-purple-900 shadow-md w-12 h-12 flex items-center justify-center" 
           onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+          title="Toggle theme"
         >
-          {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+          <span className="flex items-center justify-center w-6 h-6">
+            {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+          </span>
         </Button>
       </nav>
 
@@ -217,12 +238,15 @@ function NavButton({ icon, isActive, onClick, label }: NavButtonProps) {
       variant="ghost"
       size="icon"
       className={cn(
-        "relative rounded-full bg-white dark:bg-gray-800 text-pink-600 dark:text-purple-400 shadow-md",
+        "relative rounded-full bg-white dark:bg-gray-800 text-pink-600 dark:text-purple-400 shadow-md w-12 h-12 flex items-center justify-center",
         isActive ? "bg-pink-100 dark:bg-purple-900 ring-2 ring-pink-500 dark:ring-purple-500" : "hover:bg-pink-100 dark:hover:bg-purple-900",
       )}
       onClick={onClick}
+      title={label}
     >
-      {icon}
+      <span className="flex items-center justify-center w-6 h-6">
+        {icon}
+      </span>
       {isActive && (
         <span className="absolute -right-1 -top-1 w-3 h-3 bg-pink-500 dark:bg-purple-500 rounded-full" />
       )}
